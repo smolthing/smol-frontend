@@ -1,10 +1,11 @@
 const fontSize = {
-  xxxLarge: 24,
+  header: 28,
+  xxxLarge: 50,
   xxLarge: 22,
   xLarge: 20,
-  large: 17,
+  large: 18,
   middle: 14,
-  small: 12,
+  small: 10,
 }
 
 export { fontSize }

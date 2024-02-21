@@ -20,7 +20,7 @@ export default function Home() {
   const isDark = scheme === 'dark'
   const colorScheme = {
     content: isDark? styles.darkContent : styles.lightContent,
-    text: isDark? colors.white : colors.primaryText
+    text: isDark? colors.white : colors.primary
   }
 
   useEffect(() => {

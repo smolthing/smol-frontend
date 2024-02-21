@@ -18,7 +18,7 @@
     "updates": {
       "enabled": true,
       "fallbackToCacheTimeout": 10000,
-      "url": ""
+      "url": "https://u.expo.dev/1db19b9f-1051-4416-b90e-79fb4cf4bbba"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -60,8 +60,6 @@
         "projectId": "1db19b9f-1051-4416-b90e-79fb4cf4bbba"
       }
     },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    }
+    "runtimeVersion": "1.0.0"
   }
 }

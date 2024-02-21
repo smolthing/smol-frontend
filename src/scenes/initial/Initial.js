@@ -22,7 +22,7 @@ export default function Initial() {
   const isDark = scheme === 'dark'
   const colorScheme = {
     container: isDark? colors.dark: colors.white,
-    text: isDark? colors.white : colors.primaryText
+    text: isDark? colors.white : colors.primary
   }
 
   useEffect(() => {

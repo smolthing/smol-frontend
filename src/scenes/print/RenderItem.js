@@ -8,7 +8,7 @@ export default function RenderItem(props) {
   const { scheme } = useContext(ColorSchemeContext)
   const isDark = scheme === 'dark'
   const colorScheme = {
-    text: isDark? colors.white : colors.primaryText
+    text: isDark? colors.white : colors.primary
   }
 
   return (

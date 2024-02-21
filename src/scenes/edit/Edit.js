@@ -32,7 +32,7 @@ export default function Edit() {
   const [spinner, setSpinner] = useState(false)
   const isDark = scheme === 'dark'
   const colorScheme = {
-    text: isDark? colors.white : colors.primaryText,
+    text: isDark? colors.white : colors.primary,
     progress: isDark? styles.darkprogress : styles.progress,
   }
 

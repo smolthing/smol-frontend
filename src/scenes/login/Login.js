@@ -27,7 +27,7 @@ export default function Login() {
   const { scheme } = useContext(ColorSchemeContext)
   const isDark = scheme === 'dark'
   const colorScheme = {
-    text: isDark? colors.white : colors.primaryText
+    text: isDark? colors.white : colors.primary
   }
 
   const onFooterLinkPress = () => {
@@ -35,7 +35,7 @@ export default function Login() {
   }
 
   useEffect(() => {
-    console.log('Login screen, ログイン画面')
+    console.log('Login screen')
   }, [])
 
   const onLoginPress = async() => {
@@ -64,7 +64,7 @@ export default function Login() {
       >
         <Logo />
         <TextInputBox
-          placeholder='E-mail'
+          placeholder='Email'
           onChangeText={(text) => setEmail(text)}
           autoCapitalize="none"
           value={email}
@@ -83,7 +83,7 @@ export default function Login() {
           onPress={() => onLoginPress()}
         />
         <View style={styles.footerView}>
-          <Text style={[styles.footerText, { color: colorScheme.text }]}>Don't have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign up</Text></Text>
+          <Text style={styles.footerText}>Don't have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign up</Text></Text>
         </View>
       </KeyboardAwareScrollView>
       <Spinner
@@ -107,10 +107,11 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   footerText: {
+    color: colors.gray,
     fontSize: fontSize.large,
   },
   footerLink: {
-    color: colors.blueLight,
+    color: colors.primary,
     fontWeight: "bold",
     fontSize: fontSize.large
   },

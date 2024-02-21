@@ -11,7 +11,7 @@ import Spinner from 'react-native-loading-spinner-overlay'
 import { useNavigation } from '@react-navigation/native'
 import { colors, fontSize } from '../../theme';
 import { ColorSchemeContext } from '../../context/ColorSchemeContext'
-import { defaultAvatar, eulaLink } from '../../config'
+import { defaultAvatar, termsLink } from '../../config'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/config'
 
@@ -25,7 +25,7 @@ export default function Registration() {
   const { scheme } = useContext(ColorSchemeContext)
   const isDark = scheme === 'dark'
   const colorScheme = {
-    text: isDark? colors.white : colors.primaryText
+    text: isDark? colors.white : colors.primary
   }
 
   useEffect(() => {
@@ -59,6 +59,7 @@ export default function Registration() {
     }
   }
 
+  const header = <Text style={styles.headerStyle}>Sign up an account</Text>;
   return (
     <ScreenTemplate>
       <KeyboardAwareScrollView
@@ -66,14 +67,15 @@ export default function Registration() {
         keyboardShouldPersistTaps="always"
       >
         <Logo />
+        {header}
         <TextInputBox
-          placeholder='Your Name'
+          placeholder='Name'
           onChangeText={(text) => setFullName(text)}
           value={fullName}
           autoCapitalize="none"
         />
         <TextInputBox
-          placeholder='E-mail'
+          placeholder='Email'
           onChangeText={(text) => setEmail(text)}
           value={email}
           autoCapitalize="none"
@@ -94,14 +96,14 @@ export default function Registration() {
           autoCapitalize="none"
         />
         <Button
-          label='Agree and Create account'
+          label='Create an account'
           color={colors.primary}
           onPress={() => onRegisterPress()}
         />
         <View style={styles.footerView}>
-          <Text style={[styles.footerText, {color: colorScheme.text}]}>Already got an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in</Text></Text>
+          <Text style={styles.footerText}>Already have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in</Text></Text>
         </View>
-        <Text style={[styles.link, {color: colorScheme.text}]} onPress={ ()=>{ Linking.openURL(eulaLink)}}>Require agree <Text style={styles.eulaLink}>EULA</Text></Text>
+        <Text style={[styles.link]} onPress={ ()=>{ Linking.openURL(termsLink)}}>By signing up, you agree to the <Text style={styles.termsLink}>Terms of Services and Privacy Policy.</Text></Text>
       </KeyboardAwareScrollView>
       <Spinner
         visible={spinner}
@@ -117,6 +119,12 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
   },
+  headerStyle: {
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: fontSize.header,
+    paddingBottom: 10
+  },
   footerView: {
     flex: 1,
     alignItems: "center",
@@ -124,18 +132,21 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   footerText: {
+    color: colors.gray,
     fontSize: fontSize.large,
   },
   footerLink: {
-    color: colors.blueLight,
+    color: colors.primary,
     fontWeight: "bold",
     fontSize: fontSize.large
   },
   link: {
+    color: colors.grayLight,
+    fontSize: fontSize.small,
     textAlign: 'center'
   },
-  eulaLink: {
-    color: colors.blueLight,
-    fontSize: fontSize.middle
+  termsLink: {
+    color: colors.gray,
+    fontSize: fontSize.small
   }
 })

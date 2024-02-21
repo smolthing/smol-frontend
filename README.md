@@ -1,7 +1,5 @@
 # React Native Expo with Firebase V2
 
-<a href="https://www.buymeacoffee.com/votepurchase" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
-
 ## Screens
 
 <img src='https://github.com/kiyohken2000/ReactNative-Expo-Firebase-Boilerplate-v2/blob/master/__DELELE_ME__/img1.jpg' width='80%'>
@@ -70,21 +68,11 @@ Try with Expo Go on your device. SDK 50.
 - use Context API
 - Adjustment style file
 
-## How to use
-
-**Video guide(Japanese)**
-
-[![How to start video](https://github.com/kiyohken2000/ReactNative-Expo-Firebase-Boilerplate-v2/blob/master/__DELELE_ME__/img10.png)](https://youtu.be/oQqvuh8kKCQ)
+## Getting Started
 
 ### 1. Install
 
-Download zip or click "Use this template"
-
-or
-
 ```
-git clone https://github.com/kiyohken2000/ReactNative-Expo-Firebase-Boilerplate-v2.git
-cd ReactNative-Expo-Firebase-Boilerplate-v2
 yarn install
 ```
 
@@ -229,6 +217,11 @@ Then check the `expo.extra.projectId` in app.json.
 
 ```
 yarn start
+```
+
+### 4. Publish to Expo
+```
+eas update
 ```
 
 ## How to use utils

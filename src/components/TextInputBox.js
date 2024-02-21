@@ -16,7 +16,7 @@ export default function TextInputBox(props) {
   const isDark = scheme === 'dark'
   const colorScheme = {
     input: isDark? colors.darkInput : colors.white,
-    text: isDark? colors.white : colors.primaryText
+    text: isDark? colors.white : colors.primary
   }
 
   return (
@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     overflow: 'hidden',
     backgroundColor: 'white',
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 5,
+    marginBottom: 5,
     marginLeft: 30,
     marginRight: 30,
     paddingLeft: 16
