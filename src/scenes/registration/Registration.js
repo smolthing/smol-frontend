@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     fontSize: fontSize.large
   },
   link: {
-    color: colors.grayLight,
+    color: colors.lightgray,
     fontSize: fontSize.small,
     textAlign: 'center'
   },

@@ -7,9 +7,7 @@ export default function Button(props) {
 
   if(disable) {
     return (
-      <View
-        style={[styles.button, { backgroundColor: color, opacity: 0.3 }]}
-      >
+      <View style={[styles.button, { backgroundColor: color, opacity: 0.3 }]}>
         <Text style={styles.buttonText}>{label}</Text>
       </View>
     )
@@ -27,17 +25,17 @@ export default function Button(props) {
 
 const styles = StyleSheet.create({
   button: {
+    alignItems: "center",
+    borderRadius: 20,
     marginLeft: 30,
     marginRight: 30,
     marginTop: 20,
-    height: 48,
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: 'center'
+    height: 65,
+    justifyContent: 'center',
   },
   buttonText: {
     color: colors.white,
-    fontSize: fontSize.large,
-    fontWeight: "bold"
+    fontSize: fontSize.button,
+    fontWeight: "bold",
   },
 })

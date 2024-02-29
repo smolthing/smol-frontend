@@ -1,11 +1,13 @@
 const fontSize = {
-  header: 28,
   xxxLarge: 50,
-  xxLarge: 22,
+  xxLarge: 20,
   xLarge: 20,
   large: 18,
   middle: 14,
   small: 10,
 }
+
+fontSize.button = fontSize.xxLarge;
+fontSize.text = fontSize.large;
 
 export { fontSize }

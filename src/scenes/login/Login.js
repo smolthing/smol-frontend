@@ -17,18 +17,14 @@ import { auth } from '../../firebase/config'
 
 // To ignore a useless warning in terminal.
 // https://stackoverflow.com/questions/44603362/setting-a-timer-for-a-long-period-of-time-i-e-multiple-minutes
-LogBox.ignoreLogs(['Setting a timer']);
+// LogBox.ignoreLogs(['Setting a timer']);
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
   const [spinner, setSpinner] = useState(false)
   const navigation = useNavigation()
-  const { scheme } = useContext(ColorSchemeContext)
-  const isDark = scheme === 'dark'
-  const colorScheme = {
-    text: isDark? colors.white : colors.primary
-  }
 
   const onFooterLinkPress = () => {
     navigation.navigate('Registration')
@@ -42,9 +38,9 @@ export default function Login() {
     try {
       setSpinner(true)
       const response = await signInWithEmailAndPassword(auth, email, password)
-      const uid = response.user.uid
-      const usersRef = doc(firestore, 'users', uid)
-      const firestoreDocument = await getDoc(usersRef)
+      const userId = response.user.uid
+      const usersReference = doc(firestore, 'users', userId)
+      const firestoreDocument = await getDoc(usersReference)
       if (!firestoreDocument.exists) {
         setSpinner(false)
         alert("User does not exist anymore.")
@@ -78,7 +74,7 @@ export default function Login() {
           autoCapitalize="none"
         />
         <Button
-          label='Log in'
+          label='Login'
           color={colors.primary}
           onPress={() => onLoginPress()}
         />

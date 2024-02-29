@@ -18,4 +18,6 @@ const colors = {
 
 colors.primary = colors.pink;
 
+colors.textBox = colors.white;
+
 export default colors

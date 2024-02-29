@@ -1,7 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React from 'react'
 import { TextInput, StyleSheet } from 'react-native'
 import { colors } from 'theme'
-import { ColorSchemeContext } from '../context/ColorSchemeContext'
+import { fontSize } from '../theme'
 
 export default function TextInputBox(props) {
   const { 
@@ -12,17 +12,11 @@ export default function TextInputBox(props) {
     autoCapitalize,
     keyboardType
   } = props
-  const { scheme } = useContext(ColorSchemeContext)
-  const isDark = scheme === 'dark'
-  const colorScheme = {
-    input: isDark? colors.darkInput : colors.white,
-    text: isDark? colors.white : colors.primary
-  }
 
   return (
     <TextInput
-      style={[styles.input, { backgroundColor: colorScheme.input, color: colorScheme.text }]}
-      placeholderTextColor={colors.grayLight}
+      style={styles.input}
+      placeholderTextColor={colors.lightgray}
       secureTextEntry={secureTextEntry}
       placeholder={placeholder}
       onChangeText={onChangeText}
@@ -36,14 +30,17 @@ export default function TextInputBox(props) {
 
 const styles = StyleSheet.create({
   input: {
-    height: 48,
-    borderRadius: 5,
+    height: 60,
+    borderRadius: 40,
     overflow: 'hidden',
     backgroundColor: 'white',
-    marginTop: 5,
+    marginTop: 10,
     marginBottom: 5,
     marginLeft: 30,
     marginRight: 30,
-    paddingLeft: 16
+    paddingLeft: 30,
+    backgroundColor: colors.textBox,
+    color: colors.black,
+    fontSize: fontSize.text
   },
 })
