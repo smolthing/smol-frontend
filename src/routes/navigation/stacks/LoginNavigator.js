@@ -13,7 +13,8 @@ export const LoginNavigator = () => {
         name="Login"
         component={Login}
         options={({ navigation }) => ({
-          headerBackground: () => null
+          headerBackground: () => null,
+          headerTintColor: "#c7d9c9"
         })}
       />
       <Stack.Screen
@@ -21,6 +22,7 @@ export const LoginNavigator = () => {
         component={Signup}
         options={({ navigation }) => ({
           headerBackground: () => null,
+          headerTintColor: "#c7d9c9"
         })}
       />
     </Stack.Navigator>
