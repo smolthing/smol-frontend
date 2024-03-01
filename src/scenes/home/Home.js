@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   title: {
-    fontSize: fontSize.xxxLarge,
+    fontSize: fontSize.xxLarge,
     marginBottom: 20,
     textAlign: 'center'
   },

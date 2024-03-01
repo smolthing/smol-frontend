@@ -16,7 +16,7 @@ export default function TextInputBox(props) {
   return (
     <TextInput
       style={styles.input}
-      placeholderTextColor={colors.lightgray}
+      placeholderTextColor={colors.lightGray}
       secureTextEntry={secureTextEntry}
       placeholder={placeholder}
       onChangeText={onChangeText}

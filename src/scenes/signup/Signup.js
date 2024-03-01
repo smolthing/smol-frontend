@@ -15,7 +15,7 @@ import { defaultAvatar, termsLink } from '../../config'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/config'
 
-export default function Registration() {
+export default function Signup() {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -29,7 +29,7 @@ export default function Registration() {
   }
 
   useEffect(() => {
-    console.log('Registration screen')
+    console.log('Signup screen')
   }, [])
 
   const onFooterLinkPress = () => {
@@ -63,43 +63,45 @@ export default function Registration() {
   return (
     <ScreenTemplate>
       <KeyboardAwareScrollView
+        scrollEnabled={false}
         style={styles.main}
         keyboardShouldPersistTaps="always"
       >
         <Logo />
-        {header}
-        <TextInputBox
-          placeholder='Name'
-          onChangeText={(text) => setFullName(text)}
-          value={fullName}
-          autoCapitalize="none"
-        />
-        <TextInputBox
-          placeholder='Email'
-          onChangeText={(text) => setEmail(text)}
-          value={email}
-          autoCapitalize="none"
-          keyboardType='email-address'
-        />
-        <TextInputBox
-          secureTextEntry={true}
-          placeholder='Password'
-          onChangeText={(text) => setPassword(text)}
-          value={password}
-          autoCapitalize="none"
-        />
-        <TextInputBox
-          secureTextEntry={true}
-          placeholder='Confirm Password'
-          onChangeText={(text) => setConfirmPassword(text)}
-          value={confirmPassword}
-          autoCapitalize="none"
-        />
-        <Button
-          label='Create an account'
-          color={colors.primary}
-          onPress={() => onRegisterPress()}
-        />
+        <View style={styles.buttonContainer}>
+          <TextInputBox
+            placeholder='Name'
+            onChangeText={(text) => setFullName(text)}
+            value={fullName}
+            autoCapitalize="none"
+          />
+          <TextInputBox
+            placeholder='Email'
+            onChangeText={(text) => setEmail(text)}
+            value={email}
+            autoCapitalize="none"
+            keyboardType='email-address'
+          />
+          <TextInputBox
+            secureTextEntry={true}
+            placeholder='Password'
+            onChangeText={(text) => setPassword(text)}
+            value={password}
+            autoCapitalize="none"
+          />
+          <TextInputBox
+            secureTextEntry={true}
+            placeholder='Confirm Password'
+            onChangeText={(text) => setConfirmPassword(text)}
+            value={confirmPassword}
+            autoCapitalize="none"
+          />
+          <Button
+            label='Create an account'
+            color={colors.primary}
+            onPress={() => onRegisterPress()}
+          />
+        </View>
         <View style={styles.footerView}>
           <Text style={styles.footerText}>Already have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in</Text></Text>
         </View>
@@ -125,6 +127,9 @@ const styles = StyleSheet.create({
     fontSize: fontSize.header,
     paddingBottom: 10
   },
+  buttonContainer: {
+    marginTop: 250,
+  },
   footerView: {
     flex: 1,
     alignItems: "center",
@@ -141,7 +146,7 @@ const styles = StyleSheet.create({
     fontSize: fontSize.large
   },
   link: {
-    color: colors.lightgray,
+    color: colors.lightGray,
     fontSize: fontSize.small,
     textAlign: 'center'
   },

@@ -10,14 +10,8 @@ import { doc, getDoc } from 'firebase/firestore';
 import Spinner from 'react-native-loading-spinner-overlay'
 import { useNavigation } from '@react-navigation/native'
 import { colors, fontSize } from '../../theme';
-import { ColorSchemeContext } from '../../context/ColorSchemeContext'
-import { LogBox } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../firebase/config'
-
-// To ignore a useless warning in terminal.
-// https://stackoverflow.com/questions/44603362/setting-a-timer-for-a-long-period-of-time-i-e-multiple-minutes
-// LogBox.ignoreLogs(['Setting a timer']);
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -27,7 +21,7 @@ export default function Login() {
   const navigation = useNavigation()
 
   const onFooterLinkPress = () => {
-    navigation.navigate('Registration')
+    navigation.navigate('Signup')
   }
 
   useEffect(() => {
@@ -55,32 +49,35 @@ export default function Login() {
   return (
     <ScreenTemplate>
       <KeyboardAwareScrollView
+        scrollEnabled={false}
         style={styles.main}
-        keyboardShouldPersistTaps="always"
-      >
+        keyboardShouldPersistTaps="always">
         <Logo />
-        <TextInputBox
-          placeholder='Email'
-          onChangeText={(text) => setEmail(text)}
-          autoCapitalize="none"
-          value={email}
-          keyboardType={'email-address'}
-        />
-        <TextInputBox
-          secureTextEntry={true}
-          placeholder='Password'
-          onChangeText={(text) => setPassword(text)}
-          value={password}
-          autoCapitalize="none"
-        />
-        <Button
-          label='Login'
-          color={colors.primary}
-          onPress={() => onLoginPress()}
-        />
-        <View style={styles.footerView}>
-          <Text style={styles.footerText}>Don't have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign up</Text></Text>
+        <View style={styles.buttonContainer}>
+          <TextInputBox
+            placeholder='Email'
+            onChangeText={(text) => setEmail(text)}
+            autoCapitalize="none"
+            value={email}
+            keyboardType={'email-address'}
+          />
+          <TextInputBox
+            secureTextEntry={true}
+            placeholder='Password'
+            onChangeText={(text) => setPassword(text)}
+            value={password}
+            autoCapitalize="none"
+          />
+          <Button
+            label='Login'
+            color={colors.primary}
+            onPress={() => onLoginPress()}
+          />
+          <View style={styles.footerView}>
+            <Text style={styles.footerText}>Don't have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign up</Text></Text>
+          </View>
         </View>
+
       </KeyboardAwareScrollView>
       <Spinner
         visible={spinner}
@@ -95,6 +92,9 @@ const styles = StyleSheet.create({
   main: {
     flex: 1,
     width: '100%',
+  },
+  buttonContainer: {
+    marginTop: 400,
   },
   footerView: {
     flex: 1,

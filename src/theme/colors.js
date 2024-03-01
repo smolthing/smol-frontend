@@ -7,7 +7,7 @@ const colors = {
   lightGrayPurple: '#f7f7fb',
   pink: '#F4747C',
   gray: '#797777',
-  grayLight: '#aaaaaa',
+  lightGray: '#aaaaaa',
   secondary: '#dc143c',
   tertiary: '#228b22',
   white: '#ffffff',
