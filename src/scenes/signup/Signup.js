@@ -147,11 +147,16 @@ const styles = StyleSheet.create({
   footerText: {
     color: colors.gray,
     fontSize: fontSize.large,
+    textShadowColor: colors.black,
+    textShadowOffset: { width: 2, height: 2 },
   },
   footerLink: {
-    color: colors.primary,
+    color: colors.darkGreen,
     fontWeight: "bold",
-    fontSize: fontSize.large
+    fontSize: fontSize.large,
+    textShadowColor: 'rgba(0,0,0,0.3)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1,
   },
   link: {
     color: colors.lightGray,
