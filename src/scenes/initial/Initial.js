@@ -21,7 +21,7 @@ export default function Initial() {
   const { scheme } = useContext(ColorSchemeContext)
   const isDark = scheme === 'dark'
   const colorScheme = {
-    container: isDark? colors.dark: colors.white,
+    container: colors.background,
     text: isDark? colors.white : colors.primary
   }
 

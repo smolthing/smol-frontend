@@ -15,8 +15,8 @@ const colors = {
   lightyellow: '#ffffe0',
   black: '#000000',
   red: '#cda39e',
-  green: '#c7d9c9',
-  darkGreen: '#b8d1bb'
+  green: '#c1daca',
+  darkGreen: '#aec4b6'
 }
 
 colors.primary = colors.pink;

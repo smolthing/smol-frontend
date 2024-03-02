@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     height: 310,
     alignItems: "center",
     justifyContent: "center",
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   image: {
     width: "100%",

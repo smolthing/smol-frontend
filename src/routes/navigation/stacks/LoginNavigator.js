@@ -13,9 +13,10 @@ export const LoginNavigator = () => {
       <Stack.Screen
         name="Login"
         component={Login}
-        options={({}) => ({
+        options={() => ({
           headerStyle: {
             backgroundColor: colors.green,
+            shadowOpacity: 0
           },
           headerTintColor: colors.green
         })}
@@ -26,8 +27,9 @@ export const LoginNavigator = () => {
         options={() => ({
           headerStyle: {
             backgroundColor: colors.background,
+            shadowOpacity: 0
           },
-          headerTintColor: colors.background
+          headerTintColor: colors.background,
         })}
       />
     </Stack.Navigator>

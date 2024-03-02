@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 40,
     overflow: 'hidden',
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
     marginTop: 10,
     marginBottom: 5,
     marginLeft: 30,
