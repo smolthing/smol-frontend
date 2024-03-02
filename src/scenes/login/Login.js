@@ -80,7 +80,7 @@ export default function Login() {
           />
           <Button
             label='Login'
-            color={colors.primary}
+            color={colors.darkGreen}
             onPress={() => onLoginPress()}
           />
           <View style={styles.footerView}>
