@@ -13,11 +13,12 @@ import { colors, fontSize } from '../../theme';
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../firebase/config'
 import { images } from 'theme';
+import { ERROR_MAPPING } from '../../utils/Constants'
+import { showErrorToast } from '../../utils/ShowToast'
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
   const [spinner, setSpinner] = useState(false)
   const navigation = useNavigation()
 
@@ -30,6 +31,14 @@ export default function Login() {
   }, [])
 
   const onLoginPress = async() => {
+    if (!email) {
+      return showErrorToast(ERROR_MAPPING.emailRequired)
+    }
+
+    if (!password) {
+      return showErrorToast(ERROR_MAPPING.passwordRequired)
+    }
+
     try {
       setSpinner(true)
       const response = await signInWithEmailAndPassword(auth, email, password)
@@ -43,7 +52,7 @@ export default function Login() {
       }
     } catch(error) {
       setSpinner(false)
-      alert(error)
+      showErrorToast(ERROR_MAPPING[error.code])
     }
   }
 

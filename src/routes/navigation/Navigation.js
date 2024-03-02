@@ -23,7 +23,7 @@ export default function App() {
           <LoginNavigator/>
         }
       </NavigationContainer>
-      <Toast config={toastConfig} />
+      <Toast config={toastConfig} position="bottom" />
     </>
   )
 }

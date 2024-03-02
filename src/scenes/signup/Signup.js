@@ -14,6 +14,8 @@ import { defaultAvatar, termsLink } from '../../config'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/config'
 import { images } from 'theme';
+import { ERROR_MAPPING } from '../../utils/Constants'
+import { showErrorToast } from '../../utils/ShowToast'
 
 export default function Signup() {
   const [fullName, setFullName] = useState('')
@@ -32,10 +34,22 @@ export default function Signup() {
   }
 
   const onRegisterPress = async() => {
-    if (password !== confirmPassword) {
-      alert("Passwords don't match.")
-      return
+    if (fullName.length == 0) {
+      return showErrorToast(ERROR_MAPPING.nameRequired)
     }
+
+    if (email.length == 0) {
+      return showErrorToast(ERROR_MAPPING.emailRequired)
+    }
+
+    if (password.length == 0) {
+      return showErrorToast(ERROR_MAPPING.passwordRequired)
+    }
+
+    if (password !== confirmPassword) {
+      return showErrorToast(ERROR_MAPPING.passwordMismatch)
+    }
+
     try {
       setSpinner(true)
       const response = await createUserWithEmailAndPassword(auth, email, password)
@@ -48,9 +62,9 @@ export default function Signup() {
       };
       const usersRef = doc(firestore, 'users', uid);
       await setDoc(usersRef, data)
-    } catch(e) {
+    } catch(error) {
       setSpinner(false)
-      alert(e)
+      showErrorToast(ERROR_MAPPING[error.code])
     }
   }
 

@@ -12,25 +12,34 @@ const showToast = ({title, body, isDark}) => {
   });
 }
 
+const showErrorToast = (title) =>
+  showToast({
+    title,
+    type: 'error',
+  });
+
 const toastConfig = {
   /*
     Overwrite 'success' type,
     by modifying the existing `BaseToast` component
   */
   success: (props) => {
-    const { isDark } = props.props
     const styles = {
-      backgroundColor: isDark?colors.darkInput: colors.white,
-      text1Color: isDark?colors.white: colors.black,
-      text2Color: isDark?colors.lightyellow: colors.darkPurple
+      backgroundColor: colors.gray,
+      text1Color: colors.white,
+      text2Color: colors.white
     }
     return (
       <BaseToast
         {...props}
-        style={{borderLeftColor: colors.primary}}
+        style={{
+          borderLeftColor: colors.primary,
+          borderLeftWidth: 10,
+          borderRadius: 0
+        }}
         contentContainerStyle={{
           paddingHorizontal: 15,
-          backgroundColor: styles.backgroundColor
+          backgroundColor: styles.backgroundColor,
         }}
         text1Style={{
           fontSize: fontSize.middle,
@@ -53,7 +62,7 @@ const toastConfig = {
     <ErrorToast
       {...props}
       text1Style={{
-        fontSize: 17
+        fontSize: 20
       }}
       text2Style={{
         fontSize: 15
@@ -75,4 +84,4 @@ const toastConfig = {
   )
 };
 
-export { showToast, toastConfig }
+export { showToast, showErrorToast, toastConfig }
