@@ -1,19 +1,19 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Text, StyleSheet, View, Linking } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import ScreenTemplate from '../../components/ScreenTemplate';
 import TextInputBox from '../../components/TextInputBox';
 import Button from '../../components/Button';
-import Logo from '../../components/Logo';
+import ScreenImage from '../../components/ScreenImage';
 import { firestore } from '../../firebase/config'
 import { setDoc, doc } from 'firebase/firestore';
 import Spinner from 'react-native-loading-spinner-overlay'
 import { useNavigation } from '@react-navigation/native'
 import { colors, fontSize } from '../../theme';
-import { ColorSchemeContext } from '../../context/ColorSchemeContext'
 import { defaultAvatar, termsLink } from '../../config'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/config'
+import { images } from 'theme';
 
 export default function Signup() {
   const [fullName, setFullName] = useState('')
@@ -22,11 +22,6 @@ export default function Signup() {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [spinner, setSpinner] = useState(false)
   const navigation = useNavigation()
-  const { scheme } = useContext(ColorSchemeContext)
-  const isDark = scheme === 'dark'
-  const colorScheme = {
-    text: isDark? colors.white : colors.primary
-  }
 
   useEffect(() => {
     console.log('Signup screen')
@@ -59,7 +54,6 @@ export default function Signup() {
     }
   }
 
-  const header = <Text style={styles.headerStyle}>Sign up an account</Text>;
   return (
     <ScreenTemplate>
       <KeyboardAwareScrollView
@@ -67,7 +61,7 @@ export default function Signup() {
         style={styles.main}
         keyboardShouldPersistTaps="always"
       >
-        <Logo />
+        <ScreenImage src={images.signupImage} />
         <View style={styles.buttonContainer}>
           <TextInputBox
             placeholder='Name'

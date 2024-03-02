@@ -5,9 +5,9 @@ import { fontSize, colors } from "../theme";
 export default function Button(props) {
   const { label, onPress, color, disable } = props
 
-  if(disable) {
+  if (disable) {
     return (
-      <View style={[styles.button, { backgroundColor: color, opacity: 0.3 }]}>
+      <View style={[styles.button, { backgroundColor: color, opacity: 0.9 }]}>
         <Text style={styles.buttonText}>{label}</Text>
       </View>
     )

@@ -1,10 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import ScreenTemplate from '../../components/ScreenTemplate';
 import Button from '../../components/Button'
 import TextInputBox from '../../components/TextInputBox';
-import Logo from '../../components/Logo';
+import ScreenImage from '../../components/ScreenImage';
 import { firestore } from '../../firebase/config'
 import { doc, getDoc } from 'firebase/firestore';
 import Spinner from 'react-native-loading-spinner-overlay'
@@ -12,6 +12,7 @@ import { useNavigation } from '@react-navigation/native'
 import { colors, fontSize } from '../../theme';
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../firebase/config'
+import { images } from 'theme';
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -52,7 +53,7 @@ export default function Login() {
         scrollEnabled={false}
         style={styles.main}
         keyboardShouldPersistTaps="always">
-        <Logo />
+        <ScreenImage src={images.loginImage} height={400} />
         <View style={styles.buttonContainer}>
           <TextInputBox
             placeholder='Email'

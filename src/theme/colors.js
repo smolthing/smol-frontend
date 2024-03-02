@@ -5,8 +5,8 @@ const colors = {
   blueLight: "#788eec",
   lightPurple: '#9388db',
   lightGrayPurple: '#f7f7fb',
-  pink: '#F4747C',
-  gray: '#797777',
+  pink: '#e87d85',
+  gray: '#3C3633',
   lightGray: '#aaaaaa',
   secondary: '#dc143c',
   tertiary: '#228b22',
@@ -14,10 +14,12 @@ const colors = {
   darkInput: '#303030',
   lightyellow: '#ffffe0',
   black: '#000000',
+  red: '#cda39e',
+  green: '#c7d9c9'
 }
 
 colors.primary = colors.pink;
-
 colors.textBox = colors.white;
+colors.background = "#f2f2f2";
 
 export default colors
